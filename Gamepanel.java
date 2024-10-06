@@ -151,6 +151,7 @@ public class Gamepanel extends JPanel implements ActionListener{
             running = false;
         }
 
+        //If any of the collisions happen, turn bool running to false and stop the timer.
         if(running == false){
             timer.stop();
         }
@@ -184,6 +185,9 @@ public class Gamepanel extends JPanel implements ActionListener{
     public class MyKeyAdapter extends KeyAdapter{
         @Override
         public void keyPressed(KeyEvent e){
+
+            //Checks if the Left/Right/Up/Down keys are pressed and moves them accordingly. Also stops player turning 180 back on themselves.
+            //E.g if player is moving right, prevent turning directly left.
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_LEFT:
                     if(direction != 'R'){
